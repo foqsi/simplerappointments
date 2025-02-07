@@ -2,6 +2,13 @@ import { ArrowUpRight, InfoIcon } from "lucide-react";
 import Link from "next/link";
 
 export function SmtpMessage() {
+  if (
+    typeof window !== "undefined" &&
+    window.location.hostname !== "localhost"
+  ) {
+    return null;
+  }
+
   return (
     <div className="bg-muted/50 px-5 py-3 border rounded-md flex gap-4">
       <InfoIcon size={16} className="mt-0.5" />
